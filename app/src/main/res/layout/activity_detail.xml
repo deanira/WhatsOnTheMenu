@@ -7,6 +7,15 @@
     android:backgroundTint="#fdf5e8"
     tools:context=".ui.detail.DetailActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:theme="@style/CustomActionBar"
+        android:translationZ="10dp"/>
+
     <LinearLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
@@ -14,31 +23,116 @@
         android:background="@drawable/bottom_left_rounded"
         android:backgroundTint="@color/cream"
         android:orientation="vertical"
-        android:padding="60dp"
+        android:paddingVertical="60dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
             android:fontFamily="@font/poppins_bold"
             android:text="Pepperoni Pizza"
             android:textColor="@color/black"
             android:textSize="28dp" />
 
         <TextView
+            android:id="@+id/tv_restaurant"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
             android:fontFamily="@font/poppins_regular"
-            android:text="Fresh cheeze with Hawaiian pizza with fresh taste of tomatoes and Hawaiian delivery in 25 minutes" />
+            android:text="Pizza Hut" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Calories"
+                    android:textColor="@color/dark"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_cal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="1000" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Protein"
+                    android:textColor="@color/dark"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_protein"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="1000" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Carbs"
+                    android:textColor="@color/dark"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_carbs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="1000" />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
 
     <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/civ_menu"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:elevation="60dp"
         android:src="@drawable/pepperoni_pizza"
+        app:civ_border_color="@color/orange"
+        app:civ_border_width="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent=".45"

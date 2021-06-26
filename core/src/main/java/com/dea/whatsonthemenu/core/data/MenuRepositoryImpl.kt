@@ -1,6 +1,7 @@
 package com.dea.whatsonthemenu.core.data
 
 import com.dea.whatsonthemenu.core.data.source.local.LocalDataSource
+import com.dea.whatsonthemenu.core.data.source.local.entity.MenuEntity
 import com.dea.whatsonthemenu.core.data.source.remote.RemoteDataSource
 import com.dea.whatsonthemenu.core.data.source.remote.network.ApiResponse
 import com.dea.whatsonthemenu.core.data.source.remote.response.ListMenuResponse
@@ -58,16 +59,18 @@ class MenuRepositoryImpl @Inject constructor(
 
             override suspend fun saveCallResult(data: MenuInformationResponse) {
                 val menu = DataMapper.mapResponsesToEntitiesInfo(data)
-                localDataSource.insertMenu(menu)
+                localDataSource.updateMenu(menu)
             }
         }.asFlow()
 
-    override fun getFavoriteMenu(): Flow<List<Menu>> {
-        return localDataSource.getFavoriteMenu().map { DataMapper.mapEntitiesToDomain(it) }
+    override fun getFavoriteMenus(): Flow<List<Menu>> {
+        return localDataSource.getFavoriteMenus().map { DataMapper.mapEntitiesToDomain(it) }
     }
 
     override fun setFavoriteMenu(menu: Menu, state: Boolean) {
         val menuEntity = DataMapper.mapDomainToEntity(menu)
         appExecutors.diskIO().execute { localDataSource.setFavoriteMenu(menuEntity, state) }
     }
+
+    override fun getFavoriteMenu(id: Int): Flow<MenuEntity> = localDataSource.getFavoriteMenu(id)
 }

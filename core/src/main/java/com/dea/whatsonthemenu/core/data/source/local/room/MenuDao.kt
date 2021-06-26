@@ -13,7 +13,7 @@ interface MenuDao {
     fun getMenuInformation(id: Int): Flow<MenuEntity>
 
     @Query("SELECT * FROM menu where isFavorite = 1")
-    fun getFavoriteMenu(): Flow<List<MenuEntity>>
+    fun getFavoriteMenus(): Flow<List<MenuEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMenu(Menu: List<MenuEntity>)
@@ -22,5 +22,5 @@ interface MenuDao {
     suspend fun insertMenu(Menu: MenuEntity)
 
     @Update
-    fun updateFavoriteMenu(Menu: MenuEntity)
+    fun updateMenu(Menu: MenuEntity)
 }

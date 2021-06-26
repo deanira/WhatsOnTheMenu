@@ -15,6 +15,7 @@ import com.dea.whatsonthemenu.core.data.Resource
 import com.dea.whatsonthemenu.core.domain.model.Menu
 import com.dea.whatsonthemenu.core.ui.GridMenuAdapter
 import com.dea.whatsonthemenu.databinding.ActivityMainBinding
+import com.dea.whatsonthemenu.ui.detail.DetailActivity
 import com.dea.whatsonthemenu.ui.pizza.PizzaViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -44,6 +45,12 @@ class MainActivity : AppCompatActivity() {
             layoutManager = GridLayoutManager(this@MainActivity, 2)
             setHasFixedSize(true)
             adapter = menuAdapter
+        }
+
+        menuAdapter.onItemClick = { selectedData ->
+            val intent = Intent(this, DetailActivity::class.java)
+            intent.putExtra(DetailActivity.EXTRA_MENU, selectedData)
+            startActivity(intent)
         }
     }
 
