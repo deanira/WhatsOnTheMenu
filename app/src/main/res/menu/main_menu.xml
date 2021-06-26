@@ -4,7 +4,6 @@
     <item
         android:id="@+id/action_fav"
         android:icon="@drawable/ic_baseline_favorite_24"
-        android:iconTint="@color/dark"
         android:title="Favorite Menu"
         app:showAsAction="always" />
 </menu>

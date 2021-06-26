@@ -9,14 +9,14 @@ import retrofit2.http.Query
 interface ApiService {
     @GET("food/menuItems/search")
     suspend fun getMenu(
-        @Path("apiKey") apiKey: String,
-        @Path("query") query: String,
-        @Path("number") number: Int
+        @Query("apiKey") apiKey: String,
+        @Query("query") query: String,
+        @Query("number") number: Int
     ): ListMenuResponse
 
     @GET("food/menuItems/{id}")
     suspend fun getMenuInformation(
-        @Path("apiKey") apiKey: String,
-        @Query("id") id: String
+        @Query("apiKey") apiKey: String,
+        @Path("id") id: String
     ): MenuInformationResponse
 }

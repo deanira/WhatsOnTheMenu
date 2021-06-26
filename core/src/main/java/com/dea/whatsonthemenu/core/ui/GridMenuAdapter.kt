@@ -8,6 +8,7 @@ import com.dea.whatsonthemenu.core.R
 import com.dea.whatsonthemenu.core.databinding.ItemMenuBinding
 import com.dea.whatsonthemenu.core.domain.model.Menu
 import com.dea.whatsonthemenu.core.utils.Helper.loadImage
+import eightbitlab.com.blurview.RenderScriptBlur
 import java.util.ArrayList
 
 class GridMenuAdapter : RecyclerView.Adapter<GridMenuAdapter.GridViewHolder>() {
@@ -30,6 +31,11 @@ class GridMenuAdapter : RecyclerView.Adapter<GridMenuAdapter.GridViewHolder>() {
                 tvTitle.text = data.title
                 tvRestaurant.text = data.restaurant
                 tvPrice.text = "Not Available"
+//                blurView.setupWith(this.root)
+//                    .setBlurAlgorithm(RenderScriptBlur(itemView.context))
+//                    .setBlurRadius(10f)
+//                    .setBlurAutoUpdate(true)
+//                    .setHasFixedTransformationMatrix(true)
             }
         }
         init {

@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_gravity="center">
+    android:layout_gravity="center"
+    android:layout_marginVertical="8dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/civ_menu"
@@ -16,50 +17,60 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <eightbitlab.com.blurview.BlurView
+    <LinearLayout
         android:layout_width="160dp"
         android:layout_height="120dp"
-        android:layout_marginTop="80dp"
-        app:blurOverlayColor="#F0FFE9D1"
         android:background="@drawable/oval"
+        android:backgroundTint="#F0FFE9D1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="80dp"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingHorizontal="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+<!--        <eightbitlab.com.blurview.BlurView-->
+<!--            android:id="@+id/blurView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:background="@drawable/oval"-->
+<!--            app:blurOverlayColor="#C8FFFFFF">-->
 
-            <TextView
-                android:id="@+id/tv_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_bold"
-                android:text="Pepperoni Pizza"
-                android:textColor="@color/black" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/tv_restaurant"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_regular"
-                android:text="Cheese with pepperoni"
-                android:textAlignment="center"
-                android:textSize="11sp" />
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Pepperoni Pizza"
+                    android:textAlignment="center"
+                    android:textColor="@color/black" />
 
-            <TextView
-                android:id="@+id/tv_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_bold"
-                android:text="$18.00"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
+                <TextView
+                    android:id="@+id/tv_restaurant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="Cheese with pepperoni"
+                    android:textAlignment="center"
+                    android:textSize="11sp" />
 
-        </LinearLayout>
-    </eightbitlab.com.blurview.BlurView>
+                <TextView
+                    android:id="@+id/tv_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="$18.00"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+<!--        </eightbitlab.com.blurview.BlurView>-->
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

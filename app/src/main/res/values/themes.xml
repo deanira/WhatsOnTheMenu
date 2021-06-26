@@ -13,8 +13,13 @@
         <item name="android:statusBarColor" tools:targetApi="l">@color/white</item>
         <!-- Customize your theme here. -->
         <item name="android:windowLightStatusBar">true</item>
-<!--        <item name="android:textViewStyle">@style/PoppinsTextViewStyle</item>-->
-<!--        <item name="buttonStyle">@style/PoppinsButtonStyle</item>-->
+        <item name="android:textViewStyle">@style/PoppinsTextViewStyle</item>
+        <item name="buttonStyle">@style/PoppinsButtonStyle</item>
+    </style>
+
+    <style name="NoActionBar" parent="Theme.WhatsOnTheMenu">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
     <style name="PoppinsTextViewStyle" parent="android:Widget.TextView">
@@ -23,5 +28,11 @@
 
     <style name="PoppinsButtonStyle" parent="android:Widget.Holo.Button">
         <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="CustomActionBar" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:windowActionBarOverlay">true</item>
+        <!-- Support library compatibility -->
+        <item name="windowActionBarOverlay">true</item>
     </style>
 </resources>
