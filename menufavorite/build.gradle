@@ -1,8 +1,7 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.dynamic-feature'
     id 'kotlin-android'
     id 'kotlin-kapt'
-    id 'kotlin-parcelize'
     id 'dagger.hilt.android.plugin'
 }
 
@@ -10,9 +9,10 @@ apply from: '../shared_dependencies.gradle'
 
 android {
     compileSdkVersion 30
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.dea.whatsonthemenu"
+        applicationId "com.dea.whatsonthemenu.menufavorite"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
@@ -27,21 +27,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
-    buildFeatures {
-        viewBinding true
-    }
-    dynamicFeatures = [':menufavorite']
 }
 
 dependencies {
+    implementation project(":app")
     implementation project(":core")
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "com.google.android.play:core:1.10.0"
 }

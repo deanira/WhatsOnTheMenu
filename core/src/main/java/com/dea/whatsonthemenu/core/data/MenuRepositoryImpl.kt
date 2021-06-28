@@ -43,6 +43,9 @@ class MenuRepositoryImpl @Inject constructor(
             }
         }.asFlow()
 
+//    override fun getMenuInformation(id: Int): Flow<Resource<MenuInformation>> =
+//        remoteDataSource.getMenuInformation(id)
+
     override fun getMenuInformation(id: Int): Flow<Resource<MenuInformation>> =
         object : NetworkBoundResource<MenuInformation, MenuInformationResponse>() {
             override fun loadFromDB(): Flow<MenuInformation> {

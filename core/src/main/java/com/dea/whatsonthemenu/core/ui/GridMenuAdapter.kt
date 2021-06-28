@@ -8,8 +8,7 @@ import com.dea.whatsonthemenu.core.R
 import com.dea.whatsonthemenu.core.databinding.ItemMenuBinding
 import com.dea.whatsonthemenu.core.domain.model.Menu
 import com.dea.whatsonthemenu.core.utils.Helper.loadImage
-import eightbitlab.com.blurview.RenderScriptBlur
-import java.util.ArrayList
+import java.util.*
 
 class GridMenuAdapter : RecyclerView.Adapter<GridMenuAdapter.GridViewHolder>() {
 

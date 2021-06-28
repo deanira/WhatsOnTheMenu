@@ -4,4 +4,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Pizza">Pizza</string>
     <string name="Pasta">Pasta</string>
+    <string name="title_favorite">favorite</string>
+    <string name="title_menufavorite">menufavorite</string>
 </resources>

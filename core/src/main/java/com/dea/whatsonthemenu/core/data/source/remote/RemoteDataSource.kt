@@ -19,7 +19,7 @@ class RemoteDataSource @Inject constructor(
     suspend fun getMenu(query: String): Flow<ApiResponse<ListMenuResponse>> {
         return flow {
             try {
-                val response = apiService.getMenu(BuildConfig.API_KEY, query, 10)
+                val response = apiService.getMenu(BuildConfig.API_KEY, query, 20)
                 if (response.menuItems.isNotEmpty()) {
                     emit(ApiResponse.Success(response))
                 } else {

@@ -1,13 +1,11 @@
 package com.dea.whatsonthemenu.ui.home
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.MenuItem
 import android.view.View
 import androidx.activity.viewModels
-import androidx.fragment.app.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.dea.whatsonthemenu.R
@@ -16,13 +14,12 @@ import com.dea.whatsonthemenu.core.domain.model.Menu
 import com.dea.whatsonthemenu.core.ui.GridMenuAdapter
 import com.dea.whatsonthemenu.databinding.ActivityMainBinding
 import com.dea.whatsonthemenu.ui.detail.DetailActivity
-import com.dea.whatsonthemenu.ui.pizza.PizzaViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private val viewModel: PizzaViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModels()
     private lateinit var binding: ActivityMainBinding
     private lateinit var menuAdapter: GridMenuAdapter
 

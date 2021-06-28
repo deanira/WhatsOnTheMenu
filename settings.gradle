@@ -1,3 +1,4 @@
 rootProject.name = "WhatsOnTheMenu"
 include ':app'
 include ':core'
+include ':menufavorite'

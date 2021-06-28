@@ -2,17 +2,15 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
     id 'kotlin-kapt'
-    id 'kotlin-parcelize'
     id 'dagger.hilt.android.plugin'
+    id 'com.android.dynamic-feature'
 }
-
 apply from: '../shared_dependencies.gradle'
-//c56bf2305e124b35bf16993753891be4
 android {
     compileSdkVersion 30
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
-        buildConfigField("String", "API_KEY", '"c56bf2305e124b35bf16993753891be4"')
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
@@ -35,14 +33,15 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures {
-        viewBinding true
-    }
 }
 
 dependencies {
-    //room
-    implementation "androidx.room:room-runtime:$room_version"
-    kapt "androidx.room:room-compiler:$room_version"
-    androidTestImplementation "androidx.room:room-testing:$room_version"
+    implementation project(":app")
+    implementation 'androidx.core:core-ktx:1.5.0'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.annotation:annotation:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation project(":core")
 }
