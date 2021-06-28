@@ -3,6 +3,7 @@ package com.dea.whatsonthemenu.ui.home
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -28,10 +29,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
-//        binding.viewPager.adapter = sectionsPagerAdapter
-//        binding.tabs.setupWithViewPager(binding.viewPager)
-
         setSupportActionBar(binding.toolbar)
         supportActionBar?.title = ""
 
@@ -56,13 +53,13 @@ class MainActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        if (item.itemId == R.id.action_fav) {
-//            val intent = Intent(this, FavoriteActivity::class.java)
-//            startActivity(intent)
-//        }
-//        return super.onOptionsItemSelected(item)
-//    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.action_fav) {
+            val intent = Intent(this, Class.forName("com.dea.whatsonthemenu.menufavorite.FavoriteActivity"))
+            startActivity(intent)
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
     private val menuObserver = Observer<Resource<List<Menu>>> { pizza ->
         if (pizza != null) {

@@ -1,8 +1,10 @@
 package com.dea.whatsonthemenu.ui.detail
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.dea.whatsonthemenu.R
 import com.dea.whatsonthemenu.core.domain.model.Menu
 import com.dea.whatsonthemenu.core.utils.Helper.loadImage
@@ -44,6 +46,39 @@ class DetailActivity : AppCompatActivity() {
                     }
                 }
             }
+            viewModel.getMenu(menu.id)
+            viewModel.menu.observe(this) { data ->
+                setFavoriteState(menu.isFavorite)
+                binding.tvAddToFav.setOnClickListener {
+                    val favoriteStateOpposite = !data.isFavorite
+                    viewModel.setFavoriteMenu(menu, favoriteStateOpposite)
+                    if (favoriteStateOpposite) Toast.makeText(
+                        this,
+                        "Added to favorite",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    else Toast.makeText(this, "Removed from favorite", Toast.LENGTH_SHORT).show()
+                    setFavoriteState(favoriteStateOpposite)
+                }
+            }
+        }
+    }
+
+    private fun setFavoriteState(state: Boolean) {
+        if (state) {
+            binding.tvAddToFav.text = "Added to Favorite"
+            binding.tvAddToFav.setBackgroundColor(ContextCompat.getColor(this, R.color.orange))
+            binding.tvAddToFav.setCompoundDrawablesWithIntrinsicBounds(
+                0, 0,
+                R.drawable.ic_baseline_favorite_24, 0
+            )
+        } else {
+            binding.tvAddToFav.text = "Add to Favorite"
+            binding.tvAddToFav.setBackgroundColor(ContextCompat.getColor(this, R.color.dark))
+            binding.tvAddToFav.setCompoundDrawablesWithIntrinsicBounds(
+                0, 0,
+                R.drawable.ic_baseline_favorite_border_24, 0
+            )
         }
     }
 

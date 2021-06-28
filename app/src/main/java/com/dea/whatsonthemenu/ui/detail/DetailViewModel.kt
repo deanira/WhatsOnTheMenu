@@ -7,6 +7,7 @@ import com.dea.whatsonthemenu.core.domain.model.Menu
 import com.dea.whatsonthemenu.core.domain.model.MenuInformation
 import com.dea.whatsonthemenu.core.domain.usecase.MenuUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -28,7 +29,7 @@ class DetailViewModel @Inject constructor(
 //        }
     }
 
-    fun getMenuInformation(idDb: String): LiveData<Resource<MenuInformation>> {
-        return menuUseCase.getMenuInformation(idDb).asLiveData()
-    }
+    fun getMenuInformation(idDb: String): LiveData<Resource<MenuInformation>> =
+        menuUseCase.getMenuInformation(idDb).asLiveData()
+
 }

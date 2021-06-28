@@ -31,19 +31,21 @@
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
             android:fontFamily="@font/poppins_bold"
             android:text="Pepperoni Pizza"
+            android:layout_marginHorizontal="30dp"
             android:textColor="@color/black"
-            android:textSize="28dp" />
+            android:textSize="28dp"
+            android:textAlignment="center"
+            android:layout_gravity="center"/>
 
         <TextView
             android:id="@+id/tv_restaurant"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
             android:fontFamily="@font/poppins_regular"
-            android:text="Pizza Hut" />
+            android:text="Pizza Hut"
+            android:layout_gravity="center"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
